@@ -1,31 +1,36 @@
-// node src/orbiter.js
+import { ethers } from "ethers";
 
 // QUICK INTRO
-// set right contracts -> check gas price -> send tx
-
-
-const orbiter_ids = {
-    'ethereum'      : '1',
-    'optimism'      : '7',
-    'bsc'           : '15',
-    'arbitrum'      : '2',
-    'nova'          : '16',
-    'polygon'       : '6',
-    'polygon_zkevm' : '17',
-    'zksync'        : '14',
-    'zksync_lite'   : '3',
-    'starknet'      : '4',
+// set the value-> check gas price -> send tx
+// node src/modules/orbiter.js
+const orbiterIds = {
+    eth: 9005,
+    zkSync: 9514,
+    arbitrum: 9022,
+    optimism: 9077
 }
 
-const contract_txn = {
-    'chainId': chain_id,
-    'nonce': nonce,
-    "from": wallet,
-    'to': '0x80C67432656d59144cEFf962E8fAF8926599bCF8',  // check on etherscan just an address?
-    'value': value,
-    'gas': 0,
-    'gasPrice': 0
+const setValue = (amount, chainID) => {
+    const val = amount + chainID
+    console.log(orbiterIds.eth)
+    console.log(typeof val, val)
+// 0.015000000000009514
+// 0.01 + 0.005 + 0.000...0009514
 }
+
+setValue('0.01', 2)
+
+
+
+// const contract_txn = {
+//     'chainId': chain_id,
+//     'nonce': nonce,
+//     "from": wallet,
+//     'to': '0x80C67432656d59144cEFf962E8fAF8926599bCF8',  // check on etherscan just an address?
+//     'value': value,
+//     'gas': 0,
+//     'gasPrice': 0
+// }
 // STEPS
 // #1 Calculate gas price and gas limit (make this func in helper file)
 
