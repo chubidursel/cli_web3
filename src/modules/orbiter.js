@@ -10,15 +10,29 @@ const orbiterIds = {
     optimism: 9077
 }
 
-const setValue = (amount, chainID) => {
-    const val = amount + chainID
-    console.log(orbiterIds.eth)
-    console.log(typeof val, val)
 // 0.015000000000009514
 // 0.01 + 0.005 + 0.000...0009514
-}
+function setValue(number, chainId) {
+    
+    console.log("Type: ", typeof number, "VALUE: ", number)
+    // Convert number to Wei
+    const etherValue = ethers.parseUnits(number.toString(), 'ether');
 
-setValue('0.01', 2)
+    console.log("TypeOF: ", typeof etherValue, "VALUE: ", etherValue)
+
+    //const weiValue = BigInt(etherValue);
+
+    //console.log("TypeOF: ", typeof weiValue, "VALUE: ", weiValue)
+    // Convert Wei to BigNumber
+    // const weiString = weiValue.toString();
+    // const weiWithoutLastDigits = weiString.slice(0, -4);
+    // const concatenatedValue = weiWithoutLastDigits + chainId;
+  
+    // return ethers.BigNumber.from(concatenatedValue);
+  }
+
+
+setValue(0.1, "2222")
 
 
 
